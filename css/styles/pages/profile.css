@@ -1,0 +1,152 @@
+/* 用户资料页面样式 */
+.profile-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.profile-container h1 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.profile-container p {
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+}
+
+.profile-form {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-weight: 500;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.not-editable {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    font-weight: normal;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 0.75rem 1rem;
+    border: 2px solid var(--light-border);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: var(--input-bg);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.1);
+    outline: none;
+}
+
+.form-group input:disabled {
+    background: var(--disabled-bg);
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+
+.form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+#update-profile {
+    justify-content: center;
+    padding: 0.875rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+}
+
+#update-profile:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(var(--primary-rgb), 0.2);
+}
+
+#update-profile svg {
+    transition: transform 0.3s ease;
+}
+
+#update-profile:hover svg {
+    transform: translateX(2px);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .profile-container {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+
+    .profile-container h1 {
+        font-size: 1.75rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        font-size: 16px; /* 防止iOS缩放 */
+    }
+}
+
+
+/* 提示信息样式 */
+.alert {
+    position: fixed;
+    right: 2rem;
+    top: 2rem;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    animation: slideIn 0.3s ease;
+    z-index: 1000;
+    min-width: 300px;
+    max-width: 400px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.alert-success {
+    background-color: var(--success-bg);
+    color: var(--success-color);
+    border: 1px solid var(--success-border);
+}
+
+.alert-error {
+    background-color: var(--error-bg);
+    color: var(--error-color);
+    border: 1px solid var(--error-border);
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

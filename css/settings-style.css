@@ -1,0 +1,62 @@
+/* 图床设置页面样式 */
+
+/* 设置页面整体样式 */
+.wrap {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 标题样式 */
+h1 {
+    color: #0073aa;
+    border-bottom: 2px solid #0073aa;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* 表单样式 */
+form {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* 表单字段样式 */
+form .form-table th {
+    font-weight: bold;
+    color: #333;
+}
+
+form .form-table td {
+    padding: 10px 0;
+}
+
+form input[type="text"], 
+form input[type="url"], 
+form textarea, 
+form select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+/* 按钮样式 */
+form .button-primary {
+    background-color: #0073aa;
+    border-color: #0073aa;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+form .button-primary:hover {
+    background-color: #005177;
+    border-color: #005177;
+}

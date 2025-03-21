@@ -1,0 +1,136 @@
+/* 文件信息展示组件 */
+.file-info-container {
+    display: flex;
+    align-items: center;
+    background-color: #f1f5f9;
+    padding: 0.75rem;
+    border-radius: var(--radius-sm);
+    margin-top: 0.75rem;
+}
+
+.file-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-sm);
+    background-color: var(--primary-color);
+    margin-right: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.file-icon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-style: solid;
+    border-width: 0 10px 10px 0;
+    border-color: transparent rgba(255,255,255,0.3) transparent transparent;
+}
+
+.file-icon.jpeg::after,
+.file-icon.jpg::after {
+    content: 'JPG';
+    font-size: 12px;
+}
+
+.file-icon.png::after {
+    content: 'PNG';
+    font-size: 12px;
+}
+
+.file-icon.gif::after {
+    content: 'GIF';
+    font-size: 12px;
+}
+
+.file-icon.webp::after {
+    content: 'WEBP';
+    font-size: 10px;
+}
+
+.file-icon.multiple::after {
+    content: '多个';
+    font-size: 10px;
+}
+
+.file-details {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.file-name-text {
+    font-weight: 500;
+    color: var(--dark-text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.file-meta {
+    font-size: 0.8rem;
+    color: var(--medium-text);
+    margin-top: 2px;
+}
+
+/* 图片元数据网格 */
+.image-meta-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.meta-item {
+    display: flex;
+    padding: 0.75rem;
+    background-color: #f1f5f9;
+    border-radius: var(--radius-sm);
+    align-items: center;
+}
+
+.meta-icon {
+    font-size: 1.2rem;
+    margin-right: 0.75rem;
+}
+
+.meta-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.meta-title {
+    font-size: 0.75rem;
+    color: var(--medium-text);
+    margin-bottom: 0.125rem;
+}
+
+.meta-value {
+    font-weight: 500;
+    color: var(--dark-text);
+    font-size: 0.875rem;
+    word-break: break-all;
+}
+
+.meta-value.filename {
+    max-width: 120px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+}
+
+/* 响应式调整 */
+@media (max-width: 576px) {
+    .image-meta-grid {
+        grid-template-columns: 1fr;
+    }
+}

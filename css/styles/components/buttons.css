@@ -1,0 +1,288 @@
+/* 按钮基础样式 */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.65rem 1.5rem;
+    border-radius: var(--radius-md);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: var(--transition);
+    cursor: pointer;
+    line-height: 1.4;
+    text-decoration: none;
+    border: none;
+    background-color: var(--white);
+    color: var(--dark-text);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--light-border);
+    margin: 0;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    text-decoration: none;
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(74, 108, 247, 0.2);
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* 按钮变体 */
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+    border-color: var(--primary-hover);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: white;
+    border-color: var(--secondary-color);
+}
+
+.btn-error {
+    background-color: var(--error-color);
+    color: white;
+    border-color: var(--error-color);
+}
+
+.btn-error:hover {
+    background-color: #d44333;
+    border-color: #d44333;
+}
+
+.btn-success {
+    background-color: var(--success-color);
+    color: white;
+    border-color: var(--success-color);
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 1px solid var(--light-border);
+}
+
+.btn-outline:hover {
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+.btn-outline-primary {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    background-color: transparent;
+}
+
+.btn-outline-primary:hover {
+    background-color: rgba(74, 108, 247, 0.1);
+}
+
+/* 按钮尺寸 */
+.btn-sm {
+    padding: 0.4rem 0.85rem;
+    font-size: 0.85rem;
+    border-radius: var(--radius-sm);
+}
+
+.btn-lg {
+    padding: 0.8rem 1.8rem;
+    font-size: 1.1rem;
+}
+
+/* 按钮组 */
+.btn-group {
+    display: inline-flex;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+.btn-group .btn {
+    border-radius: 0;
+    margin: 0;
+    border-right-width: 0;
+}
+
+.btn-group .btn:first-child {
+    border-top-left-radius: var(--radius-md);
+    border-bottom-left-radius: var(--radius-md);
+}
+
+.btn-group .btn:last-child {
+    border-top-right-radius: var(--radius-md);
+    border-bottom-right-radius: var(--radius-md);
+    border-right-width: 1px;
+}
+
+/* 按钮状态 */
+.btn-active {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.btn-disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn-ready {
+    animation: pulse-glow 2s infinite;
+}
+
+/* 按钮内图标通用样式 */
+.btn svg {
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+.btn-icon-only {
+    padding: 0.5rem;
+    min-width: 2.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.btn-icon-only svg {
+    margin-right: 0;
+}
+
+.btn-icon-only.btn-sm {
+    min-width: 2rem;
+    width: 2rem;
+    height: 2rem;
+    padding: 0.35rem;
+}
+
+/* 响应式按钮调整 */
+@media (max-width: 576px) {
+    .btn {
+        padding: 0.6rem 1.25rem;
+    }
+    
+    .btn-sm {
+        padding: 0.35rem 0.8rem;
+        font-size: 0.8rem;
+    }
+    
+    .btn-lg {
+        padding: 0.7rem 1.5rem;
+        font-size: 1rem;
+    }
+}
+
+/* 登录/注册按钮专用样式 */
+.auth-buttons .btn-sm {
+    padding: 0.45rem 0.9rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border-radius: var(--radius-md);
+    min-width: auto;
+}
+
+.auth-buttons .btn-primary {
+    background-color: var(--primary-color);
+    border: none;
+}
+
+/* 按钮内部加载指示器 */
+.spinner {
+    display: inline-block;
+    margin-right: 8px;
+}
+
+.spinner > div {
+    width: 8px;
+    height: 8px;
+    background-color: #fff;
+    border-radius: 100%;
+    display: inline-block;
+    margin-right: 2px;
+    animation: bounce 1.4s infinite ease-in-out both;
+}
+
+.spinner .bounce1 {
+    animation-delay: -0.32s;
+}
+
+.spinner .bounce2 {
+    animation-delay: -0.16s;
+}
+
+.spinner .bounce3 {
+    animation-delay: 0s;
+}
+
+/* 波纹效果 */
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(0);
+    animation: ripple 0.6s linear;
+    pointer-events: none;
+}
+
+@keyframes ripple {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* 按钮内部图标对齐 */
+.btn svg {
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+.btn-icon-only {
+    min-width: auto;
+    padding: 0.75rem;
+}
+
+.btn-icon-only svg {
+    margin-right: 0;
+}
+
+/* 状态特效 */
+.btn-outline {
+    background-color: transparent;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.btn-outline:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-link {
+    background: none;
+    box-shadow: none;
+    color: var(--primary-color);
+    padding: 0.5rem;
+    min-width: auto;
+}
+
+.btn-link:hover {
+    background: none;
+    box-shadow: none;
+    text-decoration: underline;
+    transform: none;
+}

@@ -1,0 +1,110 @@
+/* 工具提示组件 */
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltip-text {
+    visibility: hidden;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #1e293b;
+    color: white;
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 4px;
+    width: max-content;
+    max-width: 200px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* 复制提示组件 */
+.copy-tooltip {
+    position: absolute;
+    background-color: #1e293b;
+    color: white;
+    padding: 0.4rem 0.8rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.8rem;
+    white-space: nowrap;
+    top: -40px;
+    right: 0;
+    opacity: 0.95;
+    animation: fadeInOut 1.5s ease;
+    z-index: 100;
+    box-shadow: var(--shadow-md);
+}
+
+/* 方向变体 */
+.tooltip-top .tooltip-text {
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.tooltip-bottom .tooltip-text {
+    top: 125%;
+    bottom: auto;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.tooltip-left .tooltip-text {
+    top: 50%;
+    bottom: auto;
+    right: 125%;
+    left: auto;
+    transform: translateY(-50%);
+}
+
+.tooltip-right .tooltip-text {
+    top: 50%;
+    bottom: auto;
+    left: 125%;
+    transform: translateY(-50%);
+}
+
+/* 工具提示箭头 */
+.tooltip .tooltip-text::after {
+    content: "";
+    position: absolute;
+    border-width: 5px;
+    border-style: solid;
+}
+
+.tooltip-top .tooltip-text::after {
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-color: #1e293b transparent transparent transparent;
+}
+
+.tooltip-bottom .tooltip-text::after {
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-color: transparent transparent #1e293b transparent;
+}
+
+.tooltip-left .tooltip-text::after {
+    top: 50%;
+    left: 100%;
+    margin-top: -5px;
+    border-color: transparent transparent transparent #1e293b;
+}
+
+.tooltip-right .tooltip-text::after {
+    top: 50%;
+    right: 100%;
+    margin-top: -5px;
+    border-color: transparent #1e293b transparent transparent;
+}

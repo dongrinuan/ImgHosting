@@ -1,0 +1,363 @@
+/* 主导航菜单组件 */
+.main-navigation {
+    font-size: 0.95rem;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.main-navigation ul {
+    display: inline-flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.main-navigation li {
+    position: relative;
+}
+
+.main-navigation a {
+    color: var(--dark-text);
+    text-decoration: none;
+    padding: 0.5rem 0;
+    font-weight: 500;
+    transition: var(--transition);
+    display: block;
+    position: relative;
+}
+
+.main-navigation a:hover {
+    color: var(--primary-color);
+}
+
+.main-navigation .current-menu-item > a,
+.main-navigation .current-menu-ancestor > a {
+    color: var(--primary-color);
+}
+
+.main-navigation .current-menu-item > a::after,
+.main-navigation .current-menu-ancestor > a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-color);
+}
+
+/* 下拉菜单样式 */
+.main-navigation ul ul {
+    position: absolute;
+    top: 100%;
+    left: -999em;
+    z-index: 99999;
+    background-color: var(--white);
+    box-shadow: var(--shadow-md);
+    border-radius: var(--radius-sm);
+    padding: 0.5rem 0;
+    min-width: 180px;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+.main-navigation ul li:hover > ul {
+    left: 0;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.main-navigation ul ul li {
+    width: 100%;
+}
+
+.main-navigation ul ul a {
+    width: 100%;
+    padding: 0.5rem 1.25rem;
+}
+
+.main-navigation ul ul ul {
+    left: -999em;
+    top: 0;
+}
+
+.main-navigation ul ul li:hover > ul {
+    left: 100%;
+}
+
+/* 用户导航样式 - 确保登录/注册按钮位于右侧 */
+.user-navigation {
+    margin-left: auto; /* 确保在右侧 */
+    display: flex;
+    align-items: center;
+}
+
+/* 认证按钮样式优化 */
+.auth-buttons {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+/* 移动菜单按钮 */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    align-items: center;
+    font-weight: 500;
+    color: var(--dark-text);
+}
+
+.menu-icon {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 2px;
+    background-color: var(--dark-text);
+    margin-right: 6px;
+}
+
+.menu-icon::before,
+.menu-icon::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 2px;
+    background-color: var(--dark-text);
+    left: 0;
+    transition: transform 0.2s ease;
+}
+
+.menu-icon::before {
+    top: -6px;
+}
+
+.menu-icon::after {
+    top: 6px;
+}
+
+.menu-toggle[aria-expanded="true"] .menu-icon {
+    background-color: transparent;
+}
+
+.menu-toggle[aria-expanded="true"] .menu-icon::before {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+.menu-toggle[aria-expanded="true"] .menu-icon::after {
+    transform: rotate(-45deg);
+    top: 0;
+}
+
+/* 用户下拉菜单样式 */
+.user-dropdown {
+    position: relative;
+}
+
+.user-dropdown-btn {
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    color: var(--dark-text);
+    transition: var(--transition);
+    gap: 0.5rem;
+}
+
+.user-dropdown-btn:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.username {
+    font-size: 0.9rem;
+    font-weight: 500;
+    max-width: 120px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.dropdown-arrow {
+    transition: transform 0.2s ease;
+}
+
+.user-dropdown-btn:hover .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+.user-dropdown-content {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    min-width: 180px;
+    background-color: var(--white);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    padding: 0.5rem 0;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+.user-dropdown:hover .user-dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(5px);
+}
+
+.user-dropdown-content a {
+    display: flex;
+    align-items: center;
+    padding: 0.6rem 1rem;
+    color: var(--dark-text);
+    text-decoration: none;
+    transition: var(--transition);
+    gap: 0.75rem;
+}
+
+.user-dropdown-content a:hover {
+    background-color: #f1f5f9;
+    color: var(--primary-color);
+}
+
+.user-dropdown-content a svg {
+    color: var(--medium-text);
+}
+
+.user-dropdown-content a:hover svg {
+    color: var(--primary-color);
+}
+
+.logout-link {
+    border-top: 1px solid var(--light-border);
+    margin-top: 0.25rem;
+    padding-top: 0.5rem;
+    color: var(--error-color) !important;
+}
+
+.logout-link svg {
+    color: var(--error-color) !important;
+}
+
+/* 响应式布局调整 */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    .main-navigation {
+        width: auto;
+        flex-grow: 0;
+        order: 2;
+    }
+
+    .user-navigation {
+        order: 3;
+        margin-left: 1rem;
+    }
+
+    .main-navigation ul:not(.sub-menu) {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        box-shadow: var(--shadow-md);
+        flex-direction: column;
+        width: 100%;
+        margin-top: 0.5rem;
+        gap: 0;
+        z-index: 100;
+        padding: 0.5rem 0;
+    }
+
+    .main-navigation.toggled ul:not(.sub-menu) {
+        display: flex;
+    }
+
+    .main-navigation li {
+        width: 100%;
+    }
+
+    .main-navigation a {
+        padding: 0.75rem 1rem;
+        border-bottom: 1px solid var(--light-border);
+    }
+
+    .main-navigation ul ul a {
+        width: auto;
+        padding: 0.5rem 1rem 0.5rem 2rem;
+    }
+    
+    .username {
+        display: none;
+    }
+
+    /* 在移动设备上保持登录/注册按钮靠右显示 */
+    .auth-buttons {
+        margin-left: auto;
+    }
+
+    .auth-buttons .btn-sm {
+        padding: 0.35rem 0.7rem;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .header-container {
+        padding: 0 1rem;
+    }
+
+    .site-title {
+        font-size: 1.2rem;
+    }
+
+    .auth-buttons {
+        gap: 0.5rem;
+    }
+}
+
+/* 用户导航样式 - 修复注册按钮样式 */
+.user-navigation {
+    margin-left: auto; /* 确保在右侧 */
+    display: flex;
+    align-items: center;
+}
+
+/* 认证按钮样式优化 */
+.auth-buttons {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    padding: 0.25rem;
+}
+
+/* 确保按钮可见性 */
+.auth-buttons .btn-sm {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
+    min-width: auto;
+    opacity: 1;
+    margin: 0;
+}
+
+/* 特别强调注册按钮 */
+.auth-buttons .btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    box-shadow: var(--shadow-sm);
+}

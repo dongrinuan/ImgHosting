@@ -1,0 +1,199 @@
+/* 消息提示组件 */
+.success-message,
+.error-message,
+.info-message,
+.warning-message {
+    padding: 1rem 1.25rem;
+    margin: 1.5rem 0;
+    border-radius: var(--radius-md);
+    position: relative;
+    border-left: 4px solid;
+    animation: fadeIn 0.3s ease;
+}
+
+/* 成功消息 */
+.success-message {
+    background-color: #e6f7ef;
+    border-left-color: var(--success-color);
+    color: #0f766e;
+}
+
+.success-message::before {
+    content: '';
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="%232ecc71" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>');
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0;
+}
+
+/* 错误消息 */
+.error-message {
+    background-color: #fef2f2;
+    border-left-color: var(--error-color);
+    color: #b91c1c;
+}
+
+.error-message::before {
+    content: '';
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="%23e74c3c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>');
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0;
+}
+
+/* 信息消息 */
+.info-message {
+    background-color: #eff6ff;
+    border-left-color: #3b82f6;
+    color: #1e3a8a;
+}
+
+.info-message::before {
+    content: '';
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="%233b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>');
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0;
+}
+
+/* 警告消息 */
+.warning-message {
+    background-color: #fef3c7;
+    border-left-color: #f59e0b;
+    color: #92400e;
+}
+
+.warning-message::before {
+    content: '';
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="%23f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>');
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0;
+}
+
+/* 登录提示消息 */
+.login-prompt .info-message {
+    padding: 0.85rem 1.25rem;
+    margin: 1.5rem 0 0;
+    display: flex;
+    align-items: center;
+}
+
+.login-prompt .info-message p {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.login-prompt .info-message a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.login-prompt .info-message a:hover {
+    text-decoration: underline;
+}
+
+/* 实现固定位置的全局通知 */
+.global-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    max-width: 350px;
+    padding-right: 2.5rem;
+    box-shadow: var(--shadow-md);
+    animation: slideInNotification 0.3s ease-out;
+}
+
+@keyframes slideInNotification {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.global-notification .close-notification {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: inherit;
+    opacity: 0.7;
+    transition: var(--transition);
+}
+
+.global-notification .close-notification:hover {
+    opacity: 1;
+}
+
+/* 响应式调整 */
+@media (max-width: 576px) {
+    .success-message,
+    .error-message,
+    .info-message,
+    .warning-message {
+        padding: 0.85rem 1rem;
+    }
+    
+    .global-notification {
+        max-width: calc(100% - 40px);
+        top: 10px;
+        right: 10px;
+    }
+}
+
+/* 批量操作专用样式 */
+.batch-notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    max-width: 400px;
+    z-index: 1050;
+    animation: slideInFromBottom 0.4s ease-out;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border: none;
+}
+
+@keyframes slideInFromBottom {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

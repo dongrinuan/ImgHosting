@@ -1,0 +1,80 @@
+.profile-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: var(--card-bg);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.profile-container h1 {
+    font-size: 1.8rem;
+    color: var(--heading-color);
+    margin-bottom: 0.5rem;
+}
+
+.profile-container p {
+    color: var(--medium-text);
+    margin-bottom: 2rem;
+}
+
+.profile-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-weight: 500;
+    color: var(--heading-color);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.not-editable {
+    font-size: 0.875rem;
+    color: var(--medium-text);
+    font-weight: normal;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 0.75rem;
+    border: 1px solid var(--light-border);
+    border-radius: var(--radius-md);
+    background: var(--input-bg);
+    color: var(--body-text);
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+
+.form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px var(--primary-shadow);
+    outline: none;
+}
+
+.form-group input:disabled {
+    background: var(--disabled-bg);
+    cursor: not-allowed;
+}
+
+#update-profile {
+    margin-top: 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}

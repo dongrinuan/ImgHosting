@@ -1,0 +1,33 @@
+/**
+ * 组件模块样式
+ * 该文件现在作为索引，导入所有组件子文件
+ */
+
+@import url('components/index.css');
+
+/* 以下是一些在各个组件中都可能用到的共享样式 */
+
+/* 媒体查询响应式调整 */
+@media (max-width: 768px) {
+    /* 响应式组件样式调整 */
+}
+
+@media (max-width: 576px) {
+    .link-tabs {
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.5rem;
+    }
+    
+    .link-tab {
+        padding: 0.5rem 0.75rem;
+        margin-bottom: 0.25rem;
+    }
+}
+
+/* 页面布局中的辅助类 */
+.auth-buttons .btn-sm {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.8rem;
+    min-width: auto;
+}

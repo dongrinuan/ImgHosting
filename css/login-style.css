@@ -1,0 +1,154 @@
+/* 登录页样式 */
+:root {
+    --primary-color: #4a6cf7;
+    --primary-hover: #3a5bd9;
+    --secondary-color: #7b68ee;
+    --dark-text: #334155;
+    --medium-text: #64748b;
+    --light-border: #e2e8f0;
+    --white: #ffffff;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --transition: all 0.3s ease;
+}
+
+body.login {
+    background-color: #f8fafc;
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', sans-serif;
+}
+
+#login {
+    width: 360px;
+    padding: 2rem 0;
+}
+
+.login h1 a {
+    background-image: none;
+    width: auto;
+    height: 84px;
+    padding-bottom: 0;
+    margin: 0 auto 1rem;
+    text-indent: 0;
+    position: relative;
+    overflow: visible;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login h1 a::after {
+    content: attr(title);
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--dark-text);
+}
+
+.login h1 a::before {
+    content: '图床';
+    background: var(--primary-color);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 14px;
+    position: relative;
+    margin-bottom: 0.5rem;
+    font-weight: normal;
+}
+
+.login form {
+    border: none;
+    background-color: var(--white);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    padding: 26px 24px;
+    margin-top: 20px;
+    border: 1px solid var(--light-border);
+}
+
+.login label {
+    color: var(--dark-text);
+    font-size: 15px;
+}
+
+.login form .input,
+.login input[type=text],
+.login input[type=password] {
+    border: 1px solid var(--light-border);
+    border-radius: var(--radius-sm);
+    box-shadow: none;
+    padding: 10px 12px;
+    font-size: 16px;
+    color: var(--dark-text);
+    background-color: #f8fafc;
+    transition: var(--transition);
+}
+
+.login form .input:focus,
+.login input[type=text]:focus,
+.login input[type=password]:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(74, 108, 247, 0.2);
+}
+
+.wp-core-ui .button-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    border-radius: var(--radius-sm);
+    box-shadow: none;
+    text-shadow: none;
+    transition: var(--transition);
+    display: block;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.wp-core-ui .button-primary:hover,
+.wp-core-ui .button-primary:focus {
+    background-color: var(--primary-hover);
+    border-color: var(--primary-hover);
+    box-shadow: 0 4px 8px rgba(74, 108, 247, 0.2);
+    transform: translateY(-1px);
+}
+
+.login .button.wp-hide-pw {
+    color: var(--medium-text);
+}
+
+.login #login_error,
+.login .message,
+.login .success {
+    border-left: 4px solid var(--primary-color);
+    background-color: #f8fafc;
+    box-shadow: none;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    color: var(--dark-text);
+}
+
+.login #login_error {
+    border-left-color: #e74c3c;
+}
+
+.login #nav,
+.login #backtoblog {
+    padding: 0;
+    margin: 1.5rem 0 0;
+    text-align: center;
+}
+
+.login #nav a,
+.login #backtoblog a {
+    color: var(--medium-text);
+    transition: var(--transition);
+    text-decoration: none;
+}
+
+.login #nav a:hover,
+.login #backtoblog a:hover {
+    color: var(--primary-color);
+}
+
+.login form .forgetmenot {
+    margin-top: 10px;
+}

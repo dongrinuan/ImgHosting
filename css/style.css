@@ -1,0 +1,53 @@
+/**
+ * ImgHosting主题样式
+ * 模块化CSS结构
+ */
+
+/* 导入变量定义 */
+@import url('styles/variables.css');
+
+/* 导入页面布局样式 */
+@import url('styles/layout.css');
+
+/* 导入组件样式 */
+@import url('styles/components.css');
+
+/* 导入动画效果 */
+@import url('styles/animations.css');
+
+/* 导入特定页面样式 */
+@import url('styles/pages.css');
+
+/* 站点页脚样式 */
+.site-footer {
+    margin-top: 3rem;
+    background-color: var(--white);
+    border-top: 1px solid var(--light-border);
+    padding: 2rem 0;
+}
+
+/* 打印样式优化 - 隐藏不必要的元素 */
+@media print {
+    .site-header,
+    .site-footer,
+    .upload-actions,
+    .copy-btn,
+    #upload-area {
+        display: none !important;
+    }
+    
+    .container {
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+    
+    body {
+        background: white;
+    }
+    
+    .image-preview-container {
+        border: none;
+        box-shadow: none;
+    }
+}

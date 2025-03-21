@@ -1,0 +1,224 @@
+/* 批量操作工具栏 */
+.batch-actions-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--white);
+    border-radius: var(--radius-md);
+    padding: 0.75rem 1rem;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--light-border);
+    animation: fadeIn 0.3s ease;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.batch-counter {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--dark-text);
+}
+
+.batch-counter span {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.batch-buttons {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+/* 批量选择模式下的图片项样式 */
+.gallery-item.select-mode {
+    position: relative;
+}
+
+.gallery-item.select-mode::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255,255,255,0.1);
+    z-index: 2;
+    border-radius: var(--radius-md);
+    pointer-events: none;
+    transition: background-color 0.2s ease;
+}
+
+.gallery-item.select-mode:hover::before {
+    background-color: rgba(74,108,247,0.08);
+    box-shadow: 0 0 0 2px rgba(74,108,247,0.4);
+}
+
+/* 选择复选框样式 */
+.item-checkbox {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 10;
+}
+
+.select-checkbox {
+    position: relative;
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background-color: rgba(255,255,255,0.9);
+    border: 2px solid rgba(74,108,247,0.6);
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+}
+
+.select-checkbox:checked {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.select-checkbox:checked::after {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+/* 批量操作动画 */
+.pulse-animation {
+    animation: pulse 0.4s ease;
+}
+
+/* 批量操作链接格式面板 */
+.batch-links-textarea {
+    width: 100%;
+    height: 120px;
+    padding: 0.75rem;
+    border: 1px solid var(--light-border);
+    border-radius: var(--radius-sm);
+    resize: none;
+    font-family: monospace;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+/* 批量预览区域 */
+.batch-preview-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 0.75rem;
+    margin: 1rem 0;
+}
+
+.preview-item {
+    position: relative;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    background-color: var(--light-bg);
+    aspect-ratio: 1/1;
+}
+
+.preview-thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.preview-name {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0.25rem;
+    background-color: rgba(0,0,0,0.6);
+    color: white;
+    font-size: 0.7rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+
+.preview-more {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+    background-color: var(--light-bg);
+    border: 1px dashed var(--light-border);
+    color: var(--medium-text);
+    font-size: 0.85rem;
+    padding: 1rem 0.5rem;
+    text-align: center;
+    min-height: 100px;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .batch-actions-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.75rem;
+    }
+    
+    .batch-buttons {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .batch-links-textarea {
+        height: 120px;
+    }
+}
+
+@media (max-width: 576px) {
+    .batch-actions-toolbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .batch-buttons {
+        width: 100%;
+    }
+    
+    .batch-buttons .btn {
+        flex: 1;
+        text-align: center;
+        padding-left: 0.25rem;
+        padding-right: 0.25rem;
+        font-size: 0.8rem;
+    }
+    
+    .batch-buttons .btn svg {
+        margin-right: 4px;
+    }
+    
+    .item-checkbox .checkmark {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .item-checkbox input[type="checkbox"]:checked + .checkmark::after {
+        left: 7px;
+        top: 3px;
+        width: 4px;
+        height: 9px;
+    }
+}
